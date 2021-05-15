@@ -1,0 +1,48 @@
+<%  include partials/_header %>
+    <div class="container">
+        <div class="row">
+            <div class="cil-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/add" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="category" placeholder="Insert a category" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="img" name="image" placeholder="Insert a image" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block"> Add </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Img</th>
+                            <th> operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i< categories.length; i++ ) {%>
+                            <tr>
+                                <td><%= i+ 1 %></td>
+                                <td><%= categories[i].category %></td>
+                                <td><%= categories[i].image %></td>
+                                <td>
+                                    <a href="/update/<%= categories[i]._id %>" class="btn bnt-info">Edit</a>
+                                    <a href="/delete/<%= categories[i]._id %>" class="btn bnt-danger">Delete</a>
+                                </td>
+                            </tr>
+                        <%} %> 
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>
